@@ -1,0 +1,35 @@
+{
+    "download": 482841107.89861405,
+    "upload": 269810569.538841,
+    "ping": 226.241,
+    "server": {
+        "url": "https://speedtest1.netlife.net.ec:8080/speedtest/upload.php",
+        "lat": "-2.1833",
+        "lon": "-79.8833",
+        "name": "Guayaquil",
+        "country": "Ecuador",
+        "cc": "EC",
+        "sponsor": "Netlife",
+        "id": "47816",
+        "host": "speedtest1.netlife.net.ec:8080",
+        "d": 31.85496262979431,
+        "latency": 226.241
+    },
+    "timestamp": "2024-06-15T17:16:14.816126Z",
+    "bytes_sent": 151519232,
+    "bytes_received": 409373932,
+    "share": null,
+    "client": {
+        "ip": "179.51.142.4",
+        "lat": "-2.1296",
+        "lon": "-79.6017",
+        "isp": "INPLANET SA",
+        "isprating": "3.7",
+        "rating": "0",
+        "ispdlavg": "0",
+        "ispulavg": "0",
+        "loggedin": "0",
+        "country": "EC"
+    }
+}
+

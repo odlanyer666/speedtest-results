@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados del Test de Velocidad</title>
+</head>
+<body>
+    <h1>Resultados del Test de Velocidad</h1>
+    <div id="resultados"></div>
+
+    <script>
+        fetch('resultado_speedtest.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const resultadosDiv = document.getElementById('resultados');
+                const ping = data.ping ? `${data.ping.toFixed(2)} ms` : 'No disponible';
+                const downloadMbps = (data.download / 125000).toFixed(2);
+                const uploadMbps = (data.upload / 125000).toFixed(2);
+                const serverName = data.server ? data.server.name : 'No disponible';
+                const serverLocation = data.server ? `${data.server.location}, ${data.server.country}` : 'No disponible';
+                const isp = data.client ? data.client.isp : 'No disponible';
+                const clientLocation = data.client ? `(${data.client.lat}, ${data.client.lon})` : '';
+
+                resultadosDiv.innerHTML = `
+                    <p><strong>Ping:</strong> ${ping}</p>
+                    <p><strong>Velocidad de descarga:</strong> ${downloadMbps} Mbps</p>
+                    <p><strong>Velocidad de subida:</strong> ${uploadMbps} Mbps</p>
+                    <p><strong>Servidor:</strong> ${serverName}</p>
+                    <p><strong>Ubicación del servidor:</strong> ${serverLocation}</p>
+                    <p><strong>ISP:</strong> ${isp}</p>
+                    <p><strong>Ubicación del cliente:</strong> ${clientLocation}</p>
+                `;
+            })
+            .catch(error => {
+                console.error('Error al cargar los resultados:', error);
+                document.getElementById('resultados').innerText = 'Error al cargar los resultados.';
+            });
+    </script>
+</body>
+</html>
+
